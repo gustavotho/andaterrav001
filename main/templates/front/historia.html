@@ -1,0 +1,169 @@
+{% extends 'front/master.html' %}
+
+{% load static %}
+
+
+
+{% block headblock %}
+<title>{{ site.name }} | O que fazemos</title>
+{% endblock %}
+
+
+
+{% block mainblock %}
+
+<!-- Breadcrumb Start -->
+	<div class="container">
+		<div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+			<div class="f2-s-1 p-r-30 m-tb-6">
+				<a href="/" class="breadcrumb-item f1-s-3 cl9">
+					Início
+				</a>
+			</div>
+
+		</div>
+	</div>
+<!-- Breadcrumb End -->
+
+
+<!-- Page heading Start -->
+	<div class="container p-t-4 p-b-40">
+		<h2 class="f1-l-1 cl2">
+			Nossa história
+		</h2>
+	</div>
+<!-- Page heading End -->	
+
+
+<!-- Content Start -->
+	<section class="bg0 p-b-60">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-7 col-lg-8 p-b-80">
+					<div class="p-r-10 p-r-0-sr991">
+
+						<p>
+							Associação Nacional De Defesa Dos Agricultores, Pecuaristas e Produtores Da Terra foi constituída em 2006, alterado e consolidado através da assembléia extraordinária realizada em 14 de abril de 2016, é uma pessoa jurídica de direito de direito privado, sem fins lucrativos, com duração por tempo indeterminado, de atuação e representatividade em todo o território nacional.
+						</p>
+						
+						    <br>
+
+						<p>
+							A Associação de produtores rurais que cuida mais especificamente das questões de litígio. A ANDATERRA é hoje a entidade que mais tem ações contra o Funrual a nível nacional. Além do Funrural, já contabiliza uma longa história na defesa de demandas dos produtores rurais, em especial:
+						</p>
+							
+						    <br>
+						
+						<p>
+							1) Ação para afastamento da retenção pelas adquirentes da contribuição do SENAR, matéria preclusa nos autos;
+						</p>
+							
+						    <br>
+						
+						<p>
+							2) Ação para deixar de pagar o Salário Educação incidente sobre a folha de pagamento, também com trânsito em julgado.
+						</p>
+                        <br>
+                        <p>
+                            3) Afastamento por conta da ação do Funrural, da retenção pelas adquirentes (quanto o produtor optar pela contribuição sobre a receita bruta), do SAT.
+                        </p>
+                        <br>    
+                        <p>
+                            Além de diversas outras ações judiciais, com a dos Royalties da soja, etc.
+                        </p>
+                        <br>
+                        <p>
+                            Só o benefício com o afastamento do SENAR representa, para a cultura de Soja uns R$ 12,00 por hectare e para cultura de Algodão mais de R$ 20,00 por hectare. Por outro lado, a anuidade para associado corresponde a R$ 1,00 por hectare cultivado/ano.
+                        </p>
+
+                        <p>
+                            Para facilitar o entendimento, anexamos:
+                        </p>
+
+                        <br>
+                        <p>
+                            a) Nota Técnica da ANDATERRA que interpreta a aplicação de sentença/acordão da ação;
+                        </p>
+
+                        <br>
+                        <p>
+                            b) Acordão;
+                        </p>
+                        <br>
+                        <p>
+                            c) Certidão de Objeto e Pé da ação em vigor;
+                        </p>
+                        <br>
+                        <p>
+                            d) Certidão de Transito em Julgado do Salário Educação;
+                        </p>
+                            <br>
+                        <p>
+                            e) Modelo de declaração fornecido pela ANDATERRA para o associado requerer seu benefício junto às empresas adquirentes da produção.
+                        </p>
+
+
+                        <br>
+						
+                        <div class="imgfundo">
+                            <img src="{% static '/front/images/sergio.jpg'%}" alt="">
+                            <p>Sergio Pitt , Presidente da ANDATERRA.</p>
+                        </div>
+
+					</div>
+				</div>
+				
+			<!-- Sidebar in Contact Page Start -->
+				<div class="col-md-5 col-lg-4 p-b-80">
+					<div class="p-l-10 p-rl-0-sr991">
+					<!-- Popular Posts in Contact Page Start -->
+						<div>
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Últimos posts
+								</h3>
+							</div>
+                        <!-- Sidebar in Contact Page (Dynamically) Popular Post Start -->
+							<ul class="p-t-35">
+                                {% for pop in popnews2 %}
+								<li class="flex-wr-sb-s p-b-30">
+									<a href="{% url 'news_detail' rid=pop.id %}" class="size-w-10 wrap-pic-w hov1 trans-03">
+										<img src="{{ pop.picurl }}" alt="IMG">
+									</a>
+
+									<div class="size-w-11">
+										<h6 class="p-b-4">
+											<a href="{% url 'news_detail' rid=pop.id %}" class="f1-s-5 cl3 hov-cl10 trans-03">
+												{{ pop.name }}
+											</a>
+										</h6>
+
+										<span class="cl8 txt-center p-b-24">
+											<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+												{{ pop.catname }}
+											</a>
+
+											<span class="f1-s-3 m-rl-3">
+												-
+											</span>
+
+											<span class="f1-s-3">
+												{{ pop.date }}
+											</span>
+										</span>
+									</div>
+								</li>
+                                {% endfor %}
+                            </ul>
+                        <!-- Sidebar in Contact Page (Dynamically) Popular Post Start -->
+                        </div>
+                    <!-- Popular Posts in Contact Page End -->    
+					</div>
+                </div>
+            <!-- Sidebar in Contact Page End -->
+			</div>
+		</div>
+	</section>
+<!-- Content End -->
+
+{% endblock %}

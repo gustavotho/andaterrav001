@@ -1,0 +1,137 @@
+{% extends 'front/master.html' %}
+
+{% load static %}
+
+
+
+{% block headblock %}
+<title>{{ site.name }} | O que fazemos</title>
+{% endblock %}
+
+
+
+{% block mainblock %}
+
+<!-- Breadcrumb Start -->
+	<div class="container">
+		<div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+			<div class="f2-s-1 p-r-30 m-tb-6">
+				<a href="/" class="breadcrumb-item f1-s-3 cl9">
+					Início
+				</a>
+			</div>
+
+		</div>
+	</div>
+<!-- Breadcrumb End -->
+
+
+<!-- Page heading Start -->
+	<div class="container p-t-4 p-b-40">
+		<h2 class="f1-l-1 cl2">
+			O que fazemos?
+		</h2>
+	</div>
+<!-- Page heading End -->	
+
+
+<!-- Content Start -->
+	<section class="bg0 p-b-60">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-7 col-lg-8 p-b-80">
+					<div class="p-r-10 p-r-0-sr991">
+
+						<p>
+							A ANDATERRA busca a melhoria das condições econômicas e sociais do setor primário brasileiro mediante a apresentação de projetos de lei, apoio aos ruralistas, fomento e incentivo de lideranças que represente os anseios da classe e participação ativa nas grandes decisões que evolvam o agronegócio brasileiro.
+						</p>
+						
+						<br>
+						<p>
+							<b>Missão</b>
+						</p>
+						<p>
+							Defender os direitos dos Agricultores, Pecuaristas e Produtores junto aos três poderes, Legislativo, Executivo e Judiciário. Buscando a melhoria permanece do agronegócio e dos seus associados.
+						</p>
+							
+						<br>
+						<p>
+							<b>Visão</b>
+						</p>
+						<p>
+							Contribuir de forma efetiva para o desenvolvimento do setor agrícola brasileiro, bem como ser apoio e força para crescimento de plantio e rentabilidade cadeia produtiva.
+						</p>
+							
+						<br>
+						<p>
+							<b>Valores</b>
+						</p>
+						<p>
+							Comprometimento, transparência, credibilidade, Valorização do agronegócio.
+						</p>
+						
+						<br>
+						<p>Diretoria:</p>
+
+						<p>Presidente: Sergio Pitt</p>
+						<p>1º Vice-presidente: José Alípio Fernandes da Silveira</p>
+						<p>2º Vice-presidente: Carlos Márcio Guapo</p>
+
+
+					</div>
+				</div>
+				
+			<!-- Sidebar in Contact Page Start -->
+				<div class="col-md-5 col-lg-4 p-b-80">
+					<div class="p-l-10 p-rl-0-sr991">
+					<!-- Popular Posts in Contact Page Start -->
+						<div>
+							<div class="how2 how2-cl4 flex-s-c">
+								<h3 class="f1-m-2 cl3 tab01-title">
+									Últimos posts
+								</h3>
+							</div>
+                        <!-- Sidebar in Contact Page (Dynamically) Popular Post Start -->
+							<ul class="p-t-35">
+                                {% for pop in popnews2 %}
+								<li class="flex-wr-sb-s p-b-30">
+									<a href="{% url 'news_detail' rid=pop.id %}" class="size-w-10 wrap-pic-w hov1 trans-03">
+										<img src="{{ pop.picurl }}" alt="IMG">
+									</a>
+
+									<div class="size-w-11">
+										<h6 class="p-b-4">
+											<a href="{% url 'news_detail' rid=pop.id %}" class="f1-s-5 cl3 hov-cl10 trans-03">
+												{{ pop.name }}
+											</a>
+										</h6>
+
+										<span class="cl8 txt-center p-b-24">
+											<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+												{{ pop.catname }}
+											</a>
+
+											<span class="f1-s-3 m-rl-3">
+												-
+											</span>
+
+											<span class="f1-s-3">
+												{{ pop.date }}
+											</span>
+										</span>
+									</div>
+								</li>
+                                {% endfor %}
+                            </ul>
+                        <!-- Sidebar in Contact Page (Dynamically) Popular Post Start -->
+                        </div>
+                    <!-- Popular Posts in Contact Page End -->    
+					</div>
+                </div>
+            <!-- Sidebar in Contact Page End -->
+			</div>
+		</div>
+	</section>
+<!-- Content End -->
+
+{% endblock %}
