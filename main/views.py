@@ -24,6 +24,31 @@ def conquistas(request,template_name='conquistas.html'):
 
     return render(request, template_name,{})
 
+def noticias(request):
+    # sitename = "MySite | Home"     
+    # return render(request, 'front/home.html', {'sitename':sitename})
+    
+    site = Main.objects.last()
+    news = News.objects.filter(act=1).order_by('-pk')  ## for reverse(ordering) need to filter by pk with (-) to get the latest submission first.
+
+    cat = Cat.objects.all()  ## Show categories in footer
+    subcat = SubCat.objects.all()  ## for SubMenu in the menu bar
+    
+    lastnews = News.objects.filter(act=1).order_by('-pk')[:3]   ### This query for last three post
+
+    popnews = News.objects.filter(act=1).order_by('-show')    ### Populer News will be Shown according to view(show)
+
+    popnews2 = News.objects.filter(act=1).order_by('-show')[:3]    ### 3 Populer News will be Shown according to view(show) in footer section
+
+    trending = Trending.objects.all().order_by('-pk')[:3] ### Trending now will show on top bar(send query from here to naster.html in front)
+
+    lastnews2 = News.objects.filter(act=1).order_by('-pk')[:4] # Last Four News in Three Different Frames
+
+    random_object = Trending.objects.all()[randint(0, len(trending) -1)] ## Random Object (For Trending now). I just used it for home page. To show the trending randomly
+    # print(random_object)
+    return render(request, 'front/home.html', {'site':site, 'news':news, 'cat':cat, 'subcat':subcat, 'lastnews':lastnews, 'popnews':popnews, 'popnews2':popnews2, 'trending':trending, 'lastnews2':lastnews2})
+
+
 ##--#--## Home Page(home) Function For Front (User Interface - Frontend) Start ##--#--##
 def home(request):
    

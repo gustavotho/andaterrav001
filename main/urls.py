@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),                        ## Front Home Page
     url(r'^about/$', views.about, name='about'),                ## Front About Page
     url(r'^historia/$', views.historia, name='historia'),
+    url(r'^noticias/$', views.noticias, name='noticias'),
     url(r'^conquistas/$', views.conquistas, name='conquistas'),
     url(r'^panel/$', views.panel, name='panel'),                ## Admin Panel Home Page
     url(r'^login/$', views.mylogin, name='mylogin'),            ## Front Login Page
