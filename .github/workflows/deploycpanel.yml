@@ -17,6 +17,6 @@ jobs:
         ftp-server: ftp://ftp.andaterra.com.br:21
         ftp-username: andaterrav001@andaterra.com.br
         ftp-password: zicaK7cu
-    - name: Modifiy the specific files using scripts
-      run: |
-        touch /tmp/restart.txt
+    - name: Clean temp directory
+      run: rm -rf *
+      working-directory: ./temp
