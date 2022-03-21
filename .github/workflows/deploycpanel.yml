@@ -19,4 +19,4 @@ jobs:
         ftp-password: zicaK7cu
     - name: Clean temp directory
       run: rm -rf *
-      working-directory: temp
+      working-directory: tmp
