@@ -3,7 +3,7 @@ from .import views
 
 urlpatterns = [
 
-    url(r'^$', views.home, name='hom'),                        ## Front Home Page
+    url(r'^$', views.hom, name='hom'),                        ## Front Home Page
     url(r'^about/$', views.about, name='about'),                ## Front About Page
     url(r'^historia/$', views.historia, name='historia'),
     url(r'^noticias/$', views.noticias, name='noticias'),
