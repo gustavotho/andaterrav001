@@ -17,8 +17,9 @@ urlpatterns = [
     url(r'', include('newsletter.urls')),       # here newsletter is an app name
     url(r'', include('comment.urls')),       # here comment is an app name
     url(r'', include('blacklist.urls')),       # here blacklist is an app name (for IP)
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+#if settings.DEBUG:
+#    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
